@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "382632597077",
+    "firebase_url": "https://nobetcieczane22.firebaseio.com",
+    "project_id": "nobetcieczane22",
+    "storage_bucket": "nobetcieczane22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382632597077:android:4bc7e85823da89039d26dc",
+        "android_client_info": {
+          "package_name": "com.hhgsun.nobetcieczane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382632597077-o7l38uqa59j9rh1okstdo2q3vhbjgja6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCksR5sVWC8fzmWXnP-ucCzjq39ALgxL0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382632597077-o7l38uqa59j9rh1okstdo2q3vhbjgja6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
