@@ -17,4 +17,5 @@ class DatabaseService {
       await userRegister.document(deviceid).setData(data);
     }
   }
+
 }

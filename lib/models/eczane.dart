@@ -21,8 +21,8 @@ class Eczane{
       tel: res['phone'] ?? '',
       ilce: res['dist'] ?? '',
       acikAdres: res['address'] ?? '',
-      enlem: res['loc'].toString().split(',')[0],
-      boylam: res['loc'].toString().split(',')[1]
+      enlem: res['loc'] == '' ? '' : res['loc'].toString().split(',')[0],
+      boylam: res['loc'] == '' ? '': res['loc'].toString().split(',')[1]
     );
   }
 

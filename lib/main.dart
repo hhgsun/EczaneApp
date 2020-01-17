@@ -15,33 +15,23 @@ class EczaneApp extends StatefulWidget {
 }
 
 class _EczaneAppState extends State<EczaneApp> {
-  List<Eczane> _eczaneler = [];
-  bool isLoadData = false;
+  Widget currPage = SplashScreen();
 
   void loadData() async {
-    String url =
-        'https://api.collectapi.com/health/dutyPharmacy?il=Edirne&ilce=Merkez';
+    String url = 'https://api.collectapi.com/health/dutyPharmacy?il=Edirne';
     await http.get(url, headers: {
-      'Authorization': 'apikey 5TkZjC8DHEeMRfcUMECd8M:1Omp01sESJDfJncCYqbTkS'
+      'Authorization': 'apikey 2JzEKfeq6JnRHWwFjp7UWT:6z6uuDbO1UwJjtToz41YV5'
     }).then((response) {
       var body = json.decode(response.body);
-      if (body['success']) {
+      if (body['success'] == true) {
         Iterable list = body['result'];
-        _eczaneler = list.map((e) => Eczane.fromJson(e)).toList();
+        List<Eczane> eczaneler = list.map((e) => Eczane.fromJson(e)).toList();
+        setState(() {
+          currPage = HomePage(eczaneList: eczaneler);
+        });
       } else {
-        _showDialog(Text('Dikkat !'), Text(body['result']));
-        _eczaneler = [];
+        print(body['result']);
       }
-      setState(() {
-        isLoadData = true;
-      });
-    }).catchError((onError) {
-      _showDialog(Text('Beklenmedik Hata'), Text(onError.toString()));
-      print(onError);
-      setState(() {
-        _eczaneler = [];
-        isLoadData = true;
-      });
     });
   }
 
@@ -60,28 +50,8 @@ class _EczaneAppState extends State<EczaneApp> {
   @override
   void initState() {
     deviceUserRegister();
-    this.loadData();
+    loadData();
     super.initState();
-  }
-
-  void _showDialog(Widget title, Widget content) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: title,
-          content: content,
-          actions: <Widget>[
-            new FlatButton(
-              child: new Text("Tamam"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
   }
 
   @override
@@ -91,7 +61,7 @@ class _EczaneAppState extends State<EczaneApp> {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: isLoadData ? HomePage(eczaneler: _eczaneler) : SplashScreen(),
+      home: currPage,
       debugShowCheckedModeBanner: false,
     );
   }
