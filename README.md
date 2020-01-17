@@ -18,4 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 ## ECZANE PROJESİ
 - edirnedeki nöbetçi eczaneleri https://www.edirneeo.org.tr/nobetci-eczaneler burdan alıp uygulamada gösterme
 
-** TANER OĞUZ, hhgsun
+** TANER OĞUZ
